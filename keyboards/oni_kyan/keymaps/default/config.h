@@ -29,5 +29,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define PERMISSIVE_HOLD
 
 /* Combos */
-#define COMBO_COUNT 11
+#define COMBO_COUNT 12
 #define COMBO_TERM 45

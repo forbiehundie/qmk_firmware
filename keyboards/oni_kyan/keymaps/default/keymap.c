@@ -29,10 +29,13 @@ enum layer_names {
 #define KC_SF LSFT_T(KC_F)
 #define KC_SJ RSFT_T(KC_J)
 #define KC_CK RCTL_T(KC_K)
-#define KC_AL RALT_T(KC_L)
+#define KC_AH RALT_T(KC_H)
+//#define KC_AL RALT_T(KC_L)
 
 // Defines Combos
-enum combos {
+
+enum combo_events {
+	ATAB_COMBO,
 	TAB_COMBO,
 	ESC_COMBO,
 	DEL_COMBO,
@@ -50,7 +53,7 @@ enum combos {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT(
 	KC_Q,        KC_W,        KC_E,           KC_R,          KC_T,             KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,      \
-    KC_A,        KC_AS,       KC_CD,          KC_SF,         KC_G,             KC_H,       KC_SJ,      KC_CK,      KC_AL,      KC_SCOLON, \
+    KC_A,        KC_AS,       KC_CD,          KC_SF,         KC_G,             KC_AH,      KC_SJ,      KC_CK,      KC_L,       KC_SCOLON, \
 	KC_Z,        KC_X,        KC_C,           KC_V,          KC_B,             KC_N,       KC_M,       KC_COMMA,   KC_DOT,     KC_SLASH,  \
 	                                                  KC_S1,                         KC_S2
 	),
@@ -83,13 +86,14 @@ const uint16_t PROGMEM tab_combo[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM esc_combo[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM del_combo[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM bspc_combo[] = {KC_O, KC_P, COMBO_END};
-const uint16_t PROGMEM quo_combo[] = {KC_AL, KC_SCOLON, COMBO_END};
+const uint16_t PROGMEM quo_combo[] = {KC_L, KC_SCOLON, COMBO_END};
 const uint16_t PROGMEM ent_combo[] = {KC_DOT, KC_SLASH, COMBO_END};
 const uint16_t PROGMEM cap_combo[] = {KC_C, KC_B, COMBO_END};
 const uint16_t PROGMEM numbs_combo[] = {KC_9, KC_0, COMBO_END};
 const uint16_t PROGMEM symbs_combo[] = {KC_LPRN, KC_RPRN, COMBO_END};
 const uint16_t PROGMEM numdel_combo[] = {KC_8, KC_9, COMBO_END};
 const uint16_t PROGMEM symdel_combo[] = {KC_ASTR, KC_LPRN, COMBO_END};
+const uint16_t PROGMEM atab_combo[] = {KC_Z, KC_C, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
 	[TAB_COMBO] = COMBO(tab_combo, KC_TAB),
@@ -103,4 +107,15 @@ combo_t key_combos[COMBO_COUNT] = {
 	[SYMBS_COMBO] = COMBO(symbs_combo, KC_BSPACE),
 	[NUMDEL_COMBO] = COMBO(numdel_combo, KC_DEL),
 	[SYMDEL_COMBO] = COMBO(symdel_combo, KC_DEL),
+	[ATAB_COMBO] = COMBO_ACTION(atab_combo),
 };
+
+void process_combo_event(uint16_t combo_index, bool pressed) {
+  switch(combo_index) {
+    case ATAB_COMBO:
+      if (pressed) {
+        tap_code16(A(KC_TAB));
+      }
+      break;
+  }
+}
