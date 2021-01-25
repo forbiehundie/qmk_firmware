@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AUTO_SHIFT_SETUP*/
 
 /* Tap Hold Config */
-#define TAPPING_TERM 180
+#define TAPPING_TERM 170
 #define TAPPING_FORCE_HOLD_PER_KEY
 #define IGNORE_MOD_TAP_INTERRUPT
 //#define PERMISSIVE_HOLD
