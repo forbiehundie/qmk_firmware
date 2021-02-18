@@ -22,3 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_FORCE_HOLD_PER_KEY
 #define IGNORE_MOD_TAP_INTERRUPT
 //#define PERMISSIVE_HOLD
+
+/* Combos */
+#define COMBO_COUNT 2
+#define COMBO_TERM 45
