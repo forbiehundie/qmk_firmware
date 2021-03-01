@@ -24,20 +24,23 @@ enum layers{
   _GNUM,
   _RGB
 };
+
+#define KC_AS LALT_T(KC_S)
+#define KC_CD LCTL_T(KC_D)
+#define KC_SF LSFT_T(KC_F)
+#define KC_SJ RSFT_T(KC_J)
+#define KC_CK RCTL_T(KC_K)
+#define KC_AL RALT_T(KC_L)
+
 //Combo Declarations
 enum {
 	DEL_COMBO,
 };
 
-//Tap Dance Declarations
-enum {
-	UESC,
-};
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_BASE] = LAYOUT(
   KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-  KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+  KC_TAB,  KC_A,    KC_AS,   KC_CD,   KC_SF,   KC_G,    KC_H,    KC_SJ,   KC_CK,   KC_AL,   KC_SCLN, KC_QUOT,
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_SFTENT,
   KC_LCTL, KC_LALT, KC_LGUI, KC_APP,  MO(_NUM),    KC_SPC,     MO(_SYM),  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
   ),
@@ -54,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TRNS,  KC_TRNS, KC_TRNS, KC_CAPS, MO(_RGB),    KC_BSPC,      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
   ),
 [_GAME] = LAYOUT(
-  KC_ESC, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
+  KC_ESC,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
   KC_TAB,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   KC_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
   KC_LCTL,  KC_LALT, KC_5,    KC_LALT, KC_C,       KC_SPC,      MO(_GNUM), KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT

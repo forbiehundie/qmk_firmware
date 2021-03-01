@@ -26,3 +26,5 @@
 
 /* Tap Hold Config */
 #define TAPPING_TERM 180
+#define TAPPING_FORCE_HOLD_PER_KEY
+#define IGNORE_MOD_TAP_INTERRUPT
