@@ -25,7 +25,7 @@ enum layer_names {
 };
 
 #define SPACE_NUM LT(_NUM, KC_SPC)
-#define GAME_NUM LT(_GAMENUM, KC_SFTENT)
+#define GAME_NUM LT(_GAMENUM, KC_ENTER)
 #define KC_AS LALT_T(KC_S)
 #define KC_CD LCTL_T(KC_D)
 #define KC_SF LSFT_T(KC_F)
