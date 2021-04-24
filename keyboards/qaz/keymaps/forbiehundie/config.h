@@ -5,7 +5,7 @@
 #define BOOTMAGIC_LITE_COLUMN 0
 
 /* Auto Shift */
-#define AUTO_SHIFT_TIMEOUT 145
+#define AUTO_SHIFT_TIMEOUT 120
 #define NO_AUTO_SHIFT_ALPHA
 #define NO_AUTO_SHIFT_MODS
 
@@ -17,5 +17,5 @@
 /*Combos */
 #ifdef COMBO_ENABLE
 #    define COMBO_COUNT 9
-#    define COMBO_TERM 200
+#    define COMBO_TERM 45
 #endif
