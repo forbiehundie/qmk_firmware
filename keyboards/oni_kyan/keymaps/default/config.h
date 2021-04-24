@@ -30,4 +30,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* Combos */
 #define COMBO_COUNT 12
-#define COMBO_TERM 45
+#define COMBO_TERM 35

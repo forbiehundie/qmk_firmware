@@ -22,7 +22,7 @@ enum layer_names {
 	_2
 };
 
-#define KC_S1 LT(_1, KC_BSPACE)
+#define KC_S1 LT(_1, KC_SPACE)
 #define KC_S2 LT(_2, KC_SPACE)
 #define KC_AS LALT_T(KC_S)
 #define KC_CD LCTL_T(KC_D)
@@ -34,7 +34,6 @@ enum layer_names {
 // Defines Combos
 
 enum combo_events {
-	ATAB_COMBO,
 	TAB_COMBO,
 	ESC_COMBO,
 	DEL_COMBO,
@@ -42,6 +41,7 @@ enum combo_events {
 	QUO_COMBO,
 	ENT_COMBO,
 	CAP_COMBO,
+	CAPSYM_COMBO,
 	NUMBS_COMBO,
 	SYMBS_COMBO,
 	NUMDEL_COMBO,
@@ -87,12 +87,12 @@ const uint16_t PROGMEM del_combo[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM bspc_combo[] = {KC_O, KC_P, COMBO_END};
 const uint16_t PROGMEM quo_combo[] = {KC_AL, KC_SCOLON, COMBO_END};
 const uint16_t PROGMEM ent_combo[] = {KC_DOT, KC_SLASH, COMBO_END};
-const uint16_t PROGMEM cap_combo[] = {KC_C, KC_B, COMBO_END};
+const uint16_t PROGMEM cap_combo[] = {KC_1, KC_2, COMBO_END};
+const uint16_t PROGMEM capsym_combo[] = {KC_EXLM, KC_AT, COMBO_END};
 const uint16_t PROGMEM numbs_combo[] = {KC_9, KC_0, COMBO_END};
 const uint16_t PROGMEM symbs_combo[] = {KC_LPRN, KC_RPRN, COMBO_END};
 const uint16_t PROGMEM numdel_combo[] = {KC_8, KC_9, COMBO_END};
 const uint16_t PROGMEM symdel_combo[] = {KC_ASTR, KC_LPRN, COMBO_END};
-const uint16_t PROGMEM atab_combo[] = {KC_Z, KC_C, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
 	[TAB_COMBO] = COMBO(tab_combo, KC_TAB),
@@ -102,19 +102,9 @@ combo_t key_combos[COMBO_COUNT] = {
 	[QUO_COMBO] = COMBO(quo_combo, KC_QUOTE),
 	[ENT_COMBO] = COMBO(ent_combo, KC_ENTER),
 	[CAP_COMBO] = COMBO(cap_combo, KC_CAPS),
+	[CAPSYM_COMBO] = COMBO(capsym_combo, KC_CAPS),
 	[NUMBS_COMBO] = COMBO(numbs_combo, KC_BSPACE),
 	[SYMBS_COMBO] = COMBO(symbs_combo, KC_BSPACE),
 	[NUMDEL_COMBO] = COMBO(numdel_combo, KC_DEL),
 	[SYMDEL_COMBO] = COMBO(symdel_combo, KC_DEL),
-	[ATAB_COMBO] = COMBO_ACTION(atab_combo),
 };
-
-void process_combo_event(uint16_t combo_index, bool pressed) {
-  switch(combo_index) {
-    case ATAB_COMBO:
-      if (pressed) {
-        tap_code16(A(KC_TAB));
-      }
-      break;
-  }
-}
